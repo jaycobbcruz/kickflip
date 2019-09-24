@@ -1,0 +1,17 @@
+package com.jaycobb.kickflip.order.api;
+
+import com.jaycobb.kickflip.common.api.AbstractApi;
+import com.jaycobb.kickflip.common.dto.CustomerOrderItemDto;
+import com.jaycobb.kickflip.common.util.Constants;
+import com.jaycobb.kickflip.order.service.CustomerOrderItemService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(Constants.API + "/customer-order-items")
+public class CustomerOrderItemApi extends AbstractApi<CustomerOrderItemDto, CustomerOrderItemService> {
+
+    public CustomerOrderItemApi(final CustomerOrderItemService service) {
+        super(service);
+    }
+}
