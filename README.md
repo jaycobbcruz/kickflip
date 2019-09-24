@@ -1,2 +1,3 @@
 # kickflip
-Kickflip
+
+A kick-ass flipping microservices application built with Spring Boot.
