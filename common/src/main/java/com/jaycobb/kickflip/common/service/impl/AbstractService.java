@@ -6,6 +6,7 @@ import com.jaycobb.kickflip.common.util.ObjectUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -49,8 +50,8 @@ public abstract class AbstractService<E extends AbstractEntity, D extends BaseDt
 
         try {
             return dto.getId() != null ? repository.findById(dto.getId())
-                    .orElseThrow(() -> new RuntimeException("Invalid ID")) : entityClass.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
+                    .orElseThrow(() -> new RuntimeException("Invalid ID")) : entityClass.getDeclaredConstructor().newInstance();
+        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             log.error(e.getMessage(), e);
             throw new RuntimeException(e.getMessage());
         }

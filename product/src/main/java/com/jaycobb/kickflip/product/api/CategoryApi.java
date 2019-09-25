@@ -1,17 +1,17 @@
 package com.jaycobb.kickflip.product.api;
 
 import com.jaycobb.kickflip.common.api.AbstractApi;
-import com.jaycobb.kickflip.common.dto.ProductDto;
-import com.jaycobb.kickflip.product.service.ProductService;
+import com.jaycobb.kickflip.common.dto.CategoryDto;
 import com.jaycobb.kickflip.common.util.Constants;
+import com.jaycobb.kickflip.product.service.CategoryService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(Constants.API + "/products")
-public class ProductApi extends AbstractApi<ProductDto, ProductService> {
+@RequestMapping(Constants.API + "/categories")
+public class CategoryApi extends AbstractApi<CategoryDto, CategoryService> {
 
-    public ProductApi(final ProductService service) {
+    public CategoryApi(final CategoryService service) {
         super(service);
     }
 }
