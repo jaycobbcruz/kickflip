@@ -27,8 +27,11 @@ public class Product extends AbstractEntity<ProductDto> {
     @NotNull
     private String name;
 
-    @NotNull
     private String description;
+
+    //@ManyToOne(optional = false)
+    @ManyToOne
+    private Brand brand;
 
     @NotNull
     private BigDecimal price;

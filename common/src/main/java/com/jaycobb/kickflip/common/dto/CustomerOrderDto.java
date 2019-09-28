@@ -3,6 +3,7 @@ package com.jaycobb.kickflip.common.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class CustomerOrderDto extends BaseDto {
 
     private BigDecimal totalPrice;

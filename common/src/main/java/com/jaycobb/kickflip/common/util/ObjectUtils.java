@@ -238,14 +238,13 @@ public class ObjectUtils {
     public static <T extends AbstractEntity> void populateEntity(final BaseDto dto, final T model, final List<String> inclusiveFields) {
 
         getFields(dto.getClass()).stream()
-                .filter(field -> field.isAnnotationPresent(EntityField.class))
                 .filter(field ->
-                        !field.getAnnotation(EntityField.class).readOnly() &&
+                        (!field.isAnnotationPresent(EntityField.class) || !field.getAnnotation(EntityField.class).readOnly()) &&
                         (CollectionUtils.isEmpty(inclusiveFields) || inclusiveFields.contains(field.getName())))
                 .forEach(field -> {
 
-                    final EntityField annotation = field.getAnnotation(EntityField.class);
-                    final String entityProperty = StringUtils.isNoneBlank(annotation.entityProperty()) ?
+                    final EntityField annotation = field.isAnnotationPresent(EntityField.class) ? field.getAnnotation(EntityField.class) : null;
+                    final String entityProperty = annotation != null && StringUtils.isNotBlank(annotation.entityProperty()) ?
                             annotation.entityProperty() : field.getName();
                     setPropertyValue(model, entityProperty, getPropertyValue(dto, field.getName()));
                 });

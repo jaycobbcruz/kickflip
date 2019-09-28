@@ -29,6 +29,12 @@ public abstract class AbstractApi<D extends BaseDto, S extends BaseService> {
         return (D) service.save(d);
     }
 
+    @PutMapping("/{id}")
+    public D update(@PathVariable("id") final UUID id, @RequestBody D d) {
+        d.setId(id);
+        return (D) service.save(d);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") final UUID id) {
         service.delete(id);
