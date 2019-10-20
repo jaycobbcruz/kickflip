@@ -57,4 +57,5 @@ public abstract class AbstractService<E extends AbstractEntity, D extends BaseDt
         }
     }
 
+    public Repo getRepository() { return repository; }
 }
