@@ -1,0 +1,13 @@
+name:
+  value: kickflip
+
+spring:
+  cloud:
+    config:
+      override-system-properties: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update

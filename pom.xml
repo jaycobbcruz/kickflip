@@ -16,16 +16,23 @@
   <description>Example Project</description>
   <modules>
     <module>common</module>
+    <module>config-server</module>
     <module>product</module>
     <module>customer</module>
     <module>order</module>
   </modules>
+
   <properties>
     <java.version>1.8</java.version>
     <maven.shade.version>3.0.0</maven.shade.version>
     <maven.compiler.version>3.3</maven.compiler.version>
     <maven.surefire.version>2.19.1</maven.surefire.version>
     <spring.boot.version>2.1.8.RELEASE</spring.boot.version>
+    <mysql.connector.version>5.1.41</mysql.connector.version>
+    <commons.lang.version>3.9</commons.lang.version>
+    <commons.collections.version>4.1</commons.collections.version>
+    <springfox.swagger.version>2.9.2</springfox.swagger.version>
+    <spring.cloud.version>Greenwich.RELEASE</spring.cloud.version>
   </properties>
 
   <dependencies>
@@ -39,17 +46,13 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-configuration-processor</artifactId>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.41</version>
+      <version>${mysql.connector.version}</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -59,29 +62,47 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.9</version>
+      <version>${commons.lang.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-collections4</artifactId>
-      <version>4.1</version>
+      <version>${commons.collections.version}</version>
     </dependency>
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger-ui</artifactId>
-      <version>2.9.2</version>
+      <version>${springfox.swagger.version}</version>
     </dependency>
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
-      <version>2.9.2</version>
+      <version>${springfox.swagger.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.199</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
 <!--    <plugins>-->

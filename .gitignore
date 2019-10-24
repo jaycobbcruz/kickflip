@@ -31,4 +31,6 @@ build/
 .vscode/
 
 application.properties
-bootstrap.yml
+customer-service.yml
+order-service.yml
+product-service.yml
