@@ -28,7 +28,7 @@
     <maven.compiler.version>3.3</maven.compiler.version>
     <maven.surefire.version>2.19.1</maven.surefire.version>
     <spring.boot.version>2.1.8.RELEASE</spring.boot.version>
-    <mysql.connector.version>5.1.41</mysql.connector.version>
+    <mysql.connector.version>8.0.28</mysql.connector.version>
     <commons.lang.version>3.9</commons.lang.version>
     <commons.collections.version>4.1</commons.collections.version>
     <springfox.swagger.version>2.9.2</springfox.swagger.version>
